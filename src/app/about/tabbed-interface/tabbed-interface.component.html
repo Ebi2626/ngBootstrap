@@ -1,0 +1,23 @@
+<div class="container my-5">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="selectedTab" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>{{ selected[0].title }}</a>
+      <ng-template ngbNavContent>
+        <app-tab [content]="selected[0].content"></app-tab>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>{{ selected[1].title }}</a>
+      <ng-template ngbNavContent>
+        <app-tab [content]="selected[1].content"></app-tab>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>{{ selected[2].title }}</a>
+      <ng-template ngbNavContent>
+        <app-tab [content]="selected[2].content"></app-tab>
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav" class="mt-2 tab-content"></div>
+</div>

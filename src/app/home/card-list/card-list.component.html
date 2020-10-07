@@ -1,0 +1,19 @@
+<div class="row text-dark">
+  <div class="col-12">
+    <ul class="row d-flex flex-wrap flex-row px-4">
+      <li
+        *ngFor="let item of items; index as i"
+        class="col-12 col-sm-6 col-md-4"
+        style="list-style-type: none"
+      >
+        <app-card
+          [title]="item.title"
+          [content]="item.content"
+          [link]="item.link"
+          [img]="item.img"
+          [number]="i"
+        ></app-card>
+      </li>
+    </ul>
+  </div>
+</div>

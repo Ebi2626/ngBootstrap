@@ -1,0 +1,70 @@
+<div class="container pt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <form
+        class="form-group py-4"
+        [formGroup]="UserForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <label for="inlineFormInputName2">Imie: </label>
+        <input
+          type="text"
+          class="form-control mb-2 mr-sm-2"
+          id="inlineFormInputName2"
+          placeholder="Wpisz imię"
+          formControlName="name"
+          required
+        />
+        <p
+          *ngIf="
+            this.UserForm.dirty && UserForm.get('name').status == 'INVALID'
+          "
+          class="text-danger"
+        >
+          Imię użytkownika jest wymagane!
+        </p>
+        <label for="inlineFormInputGroupUsername2">Nazwa użytkownika: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="inlineFormInputGroupUsername2"
+          placeholder="Wpisz nazwę użytkownika"
+          formControlName="username"
+          required
+        />
+
+        <div class="form-check mb-2 mr-sm-2">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineFormCheck"
+            formControlName="remember"
+          />
+          <label class="form-check-label" for="inlineFormCheck">
+            Zapamiętaj moje dane
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Wyślij</button>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h2 class="dispaly-4 text-center pt-4">Wprowadzone dane</h2>
+    </div>
+    <div class="col-12 col-md-10 col-lg-8 my-4">
+      <div class="card">
+        <div class="card-header">
+          <p class="mb-0">Imię: {{ UserForm.getRawValue().name }}</p>
+        </div>
+        <div class="card-body">
+          <p>Nazwa użytkownika: {{ UserForm.getRawValue().username }}</p>
+          <p>
+            Czy zapamiętać nazwę?
+            {{ UserForm.getRawValue().remember == true ? "Tak" : "Nie" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
